@@ -10,8 +10,14 @@ FetchContent_Declare(SFML
     GIT_TAG 2.6.x)
 FetchContent_MakeAvailable(SFML)
 
-add_executable(CMakeSFMLProject src/main.cpp)
-target_link_libraries(CMakeSFMLProject PRIVATE sfml-graphics)
+include(FetchContent)
+FetchContent_Declare(pugixml
+    GIT_REPOSITORY https://github.com/zeux/pugixml.git
+    GIT_TAG v1.10)
+FetchContent_MakeAvailable(pugixml)
+
+add_executable(CMakeSFMLProject src/main.cpp "src/core/app.cpp" "src/utils/util.cpp")
+target_link_libraries(CMakeSFMLProject PRIVATE sfml-graphics pugixml)
 target_compile_features(CMakeSFMLProject PRIVATE cxx_std_17)
 
 if(WIN32)

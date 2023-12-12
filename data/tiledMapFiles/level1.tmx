@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="10" height="10" tilewidth="32" tileheight="32" infinite="0" nextlayerid="10" nextobjectid="25">
+ <tileset firstgid="1" source="../../../ECSEngine2D/assets/tileset x1.tsx"/>
+ <tileset firstgid="852" name="props and items x1" tilewidth="32" tileheight="32" tilecount="528" columns="24">
+  <image source="../../assets/Props and Items/props and items x1.png" width="768" height="704"/>
+ </tileset>
+ <tileset firstgid="1380" name="npc x1" tilewidth="32" tileheight="32" tilecount="18" columns="6">
+  <image source="../../assets/NPC/npc x1.png" width="192" height="96"/>
+ </tileset>
+ <tileset firstgid="1398" name="enemies x1" tilewidth="32" tileheight="32" tilecount="160" columns="10">
+  <image source="../../assets/Enemies/enemies x1.png" width="320" height="512"/>
+ </tileset>
+ <tileset firstgid="1558" name="color palette (Dungeon Lite)" tilewidth="14" tileheight="14" tilecount="72" columns="12" tilerendersize="grid">
+  <image source="../../assets/color palette (Dungeon Lite).png" width="168" height="84"/>
+ </tileset>
+ <tileset firstgid="1630" name="Props" tilewidth="32" tileheight="32" tilecount="11" columns="0">
+  <grid orientation="orthogonal" width="1" height="1"/>
+  <tile id="3" x="0" y="0" width="32" height="32">
+   <image width="768" height="704" source="../../assets/Props and Items/props and items x1.png"/>
+  </tile>
+  <tile id="4" x="32" y="0" width="32" height="32">
+   <image width="768" height="704" source="../../assets/Props and Items/props and items x1.png"/>
+  </tile>
+  <tile id="13" x="224" y="0" width="32" height="32">
+   <image width="768" height="704" source="../../assets/Props and Items/props and items x1.png"/>
+  </tile>
+  <tile id="14" x="0" y="32" width="32" height="32">
+   <image width="768" height="704" source="../../assets/Props and Items/props and items x1.png"/>
+  </tile>
+  <tile id="15" x="32" y="32" width="32" height="32">
+   <image width="768" height="704" source="../../assets/Props and Items/props and items x1.png"/>
+  </tile>
+  <tile id="16" x="96" y="32" width="32" height="32">
+   <image width="768" height="704" source="../../assets/Props and Items/props and items x1.png"/>
+  </tile>
+  <tile id="17" x="128" y="32" width="32" height="32">
+   <image width="768" height="704" source="../../assets/Props and Items/props and items x1.png"/>
+  </tile>
+  <tile id="18" x="352" y="192" width="32" height="32">
+   <image width="768" height="704" source="../../assets/Props and Items/props and items x1.png"/>
+  </tile>
+  <tile id="19" x="384" y="192" width="32" height="32">
+   <properties>
+    <property name="TileSizeX" type="float" value="32"/>
+    <property name="TileSizeY" type="float" value="32"/>
+   </properties>
+   <image width="768" height="704" source="../../assets/Props and Items/props and items x1.png"/>
+  </tile>
+  <tile id="20" x="416" y="192" width="32" height="32">
+   <image width="768" height="704" source="../../assets/Props and Items/props and items x1.png"/>
+  </tile>
+  <tile id="21" x="448" y="192" width="32" height="32">
+   <image width="768" height="704" source="../../assets/Props and Items/props and items x1.png"/>
+  </tile>
+ </tileset>
+ <layer id="6" name="Background" width="10" height="10">
+  <data encoding="csv">
+0,0,0,0,0,1558,1558,1558,1558,1558,
+0,0,0,0,0,1558,0,0,0,1558,
+0,0,0,0,0,0,0,0,0,1558,
+1558,0,0,0,0,0,0,0,0,1558,
+1558,0,0,0,0,0,0,0,0,1558,
+0,0,0,0,0,0,0,0,0,1558,
+0,0,0,0,0,0,0,0,0,1558,
+0,0,0,0,0,0,0,0,0,1558,
+0,0,0,0,0,0,0,0,0,1558,
+1558,0,0,0,0,1558,0,0,0,1558
+</data>
+ </layer>
+ <layer id="7" name="AcidFloor" width="10" height="10">
+  <data encoding="csv">
+0,0,0,0,0,147,147,147,147,147,
+0,0,0,0,0,147,0,0,0,147,
+0,0,0,0,0,0,0,0,0,147,
+147,0,0,0,0,0,0,0,0,147,
+147,0,0,0,0,0,0,0,0,147,
+0,0,0,0,0,0,0,0,0,147,
+0,0,0,0,0,0,0,0,0,147,
+0,0,0,0,0,0,0,0,0,147,
+0,0,0,0,0,0,0,0,0,147,
+147,0,0,0,0,147,0,0,0,147
+</data>
+ </layer>
+ <layer id="1" name="Floor" width="10" height="10">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,
+72,71,72,71,72,0,0,0,0,0,
+107,72,71,107,72,0,72,72,72,0,
+0,72,72,72,72,72,72,72,72,0,
+0,72,72,72,72,72,72,71,72,0,
+0,72,72,72,72,71,72,72,72,0,
+72,74,71,74,72,72,0,0,0,0,
+72,70,74,71,72,72,72,72,72,0,
+72,72,72,72,72,72,72,72,72,0,
+0,72,72,72,72,0,72,72,72,0
+</data>
+ </layer>
+ <layer id="9" name="BackWall" width="10" height="10">
+  <data encoding="csv">
+39,6,0,0,9,0,0,0,0,0,
+0,0,0,0,0,0,3,6,9,0,
+0,5,0,7,269,270,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,
+3,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,270,0,232,0,
+0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <objectgroup id="8" name="Objects">
+  <object id="12" name="chest" gid="1648" x="123.333" y="51" width="32" height="32"/>
+  <object id="14" name="chest" gid="1649" x="252" y="83.6667" width="32" height="32"/>
+  <object id="15" name="chest" gid="1651" x="222.333" y="83.3333" width="32" height="32"/>
+  <object id="16" name="chest" gid="1650" x="246.667" y="95" width="32" height="32"/>
+  <object id="18" name="garbage" gid="1633" x="193.333" y="89" width="32" height="32"/>
+ </objectgroup>
+ <layer id="2" name="Walls" width="10" height="10">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,
+76,0,0,0,306,0,0,0,0,0,
+335,0,0,0,0,0,40,0,306,0,
+0,298,0,121,0,0,0,0,306,0,
+0,298,0,0,0,0,0,0,306,0,
+0,40,0,0,0,0,0,0,306,0,
+76,0,0,0,0,342,0,0,0,0,
+76,0,0,0,0,306,0,0,306,0,
+335,336,0,0,342,232,0,0,306,0,
+0,373,376,376,379,306,0,0,306,0
+</data>
+ </layer>
+ <layer id="3" name="Doors" width="10" height="10">
+  <data encoding="csv">
+128,0,1140,1141,0,0,0,0,0,0,
+128,128,128,0,0,0,0,0,0,0,
+0,0,1260,128,128,0,0,0,0,0,
+0,0,0,0,128,128,0,0,0,0,
+0,0,0,0,0,128,128,0,0,0,
+0,0,0,0,0,0,128,128,0,0,
+0,0,0,0,0,0,0,1260,0,0,
+0,0,0,0,0,0,0,0,128,0,
+0,0,0,0,0,0,0,0,128,0,
+0,0,0,0,0,0,0,0,128,128
+</data>
+ </layer>
+</map>
