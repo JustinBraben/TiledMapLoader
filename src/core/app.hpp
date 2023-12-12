@@ -6,7 +6,9 @@
 #include <SFML/Graphics.hpp>
 #include <entt/entity/registry.hpp>
 
-//using fs = std::filesystem::;
+using xml_node = pugi::xml_node;
+using xml_document = pugi::xml_document;
+using xml_parse_result = pugi::xml_parse_result;
 
 class Application
 {

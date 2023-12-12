@@ -63,3 +63,47 @@ void writeXmlToConsole(const std::filesystem::path& filePath)
 		std::cout << "\n";
 	}
 }
+
+void writeTileSetsToConsole(const std::filesystem::path& filePath)
+{
+	pugi::xml_document doc;
+	pugi::xml_parse_result result = doc.load_file(filePath.c_str());
+	if (!result)
+	{
+		// error
+	}
+
+	for (const auto& child : doc.children())
+	{
+		std::cout << child.name() << "\n";
+
+		for (const auto& attr : child.attributes())
+		{
+			std::cout << "  [Attribute:" << attr.name() << " = " << attr.value() << "]" << "\n";
+		}
+
+		std::cout << "\n";
+
+		for (const auto& nestChild1 : child.children())
+		{
+			std::cout << "  " << nestChild1.name() << "\n";
+
+			for (const auto& attr : nestChild1.attributes())
+			{
+				std::cout << "  [Attribute:" << attr.name() << " = " << attr.value() << "]" << "\n";
+			}
+
+			for (const auto& nestChild2 : nestChild1.children())
+			{
+				std::cout << "  " << nestChild2.name() << "\n";
+
+				for (const auto& attr : nestChild2.attributes())
+				{
+					std::cout << "    [Attribute:" << attr.name() << " = " << attr.value() << "]" << "\n";
+				}
+			}
+
+			std::cout << "\n";
+		}
+	}
+}

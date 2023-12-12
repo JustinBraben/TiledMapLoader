@@ -6,8 +6,6 @@ void Application::init(const std::filesystem::path& tmxFilePath, const std::file
 
     loadTexturesRecursive(assetsFolderPath);
 
-    writeXmlToConsole(tmxFilePath);
-
     loadEntitiesFromTmx(tmxFilePath);
 }
 
@@ -59,7 +57,8 @@ void Application::loadTexturesRecursive(const std::filesystem::path& folderPath)
 
 void Application::loadEntitiesFromTmx(const std::filesystem::path& filePath)
 {
-    
+    //writeXmlToConsole(filePath);
+    writeTileSetsToConsole(filePath);
 }
 
 void Application::update()

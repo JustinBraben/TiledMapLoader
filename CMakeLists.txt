@@ -16,13 +16,12 @@ FetchContent_Declare(EnTT
     GIT_TAG v3.12.2)  # Specify the desired tag or commit
 FetchContent_MakeAvailable(EnTT)
 
-include(FetchContent)
 FetchContent_Declare(pugixml
     GIT_REPOSITORY https://github.com/zeux/pugixml.git
     GIT_TAG v1.10)
 FetchContent_MakeAvailable(pugixml)
 
-add_executable(CMakeSFMLProject src/main.cpp "src/core/app.cpp" "src/utils/util.cpp")
+add_executable(CMakeSFMLProject src/main.cpp "src/core/app.cpp" "src/utils/util.cpp" "src/core/Tileset.cpp")
 target_link_libraries(CMakeSFMLProject PRIVATE sfml-graphics pugixml EnTT::EnTT)
 target_compile_features(CMakeSFMLProject PRIVATE cxx_std_17)
 
