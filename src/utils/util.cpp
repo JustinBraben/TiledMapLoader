@@ -73,7 +73,7 @@ void writeTileSetsToConsole(const std::filesystem::path& filePath)
 		// error
 	}
 
-	for (const auto& child : doc.children())
+	/*for (const auto& child : doc.children())
 	{
 		std::cout << child.name() << "\n";
 
@@ -104,6 +104,19 @@ void writeTileSetsToConsole(const std::filesystem::path& filePath)
 			}
 
 			std::cout << "\n";
+		}
+	}*/
+
+	for (const auto& child : doc.children())
+	{
+		for (const auto& layerChild : child.children("layer"))
+		{
+			std::cout << layerChild.name() << "\n";
+			
+			for (const auto& innerChild : layerChild.children("data"))
+			{
+				std::cout << innerChild.child_value() << "\n";
+			}
 		}
 	}
 }
