@@ -24,3 +24,42 @@ void writeFileContentsToConsole(const std::filesystem::path& filePath)
 	// Close the file stream
 	inputFile.close();
 }
+
+void writeXmlToConsole(const std::filesystem::path& filePath)
+{
+	pugi::xml_document doc;
+	pugi::xml_parse_result result = doc.load_file(filePath.c_str());
+	if (!result)
+	{
+		// error
+	}
+
+	for (pugi::xml_node node = doc.first_child(); node; node = node.next_sibling()) {
+		std::cout << "Node: " << node.name() << "\n";
+
+		// Print attributes
+		for (pugi::xml_attribute attr = node.first_attribute(); attr; attr = attr.next_attribute()) {
+			std::cout << "  [Attribute: " << attr.name() << " = " << attr.value() << "]" << "\n";
+		}
+
+		std::cout << "\n";
+
+		for (pugi::xml_node child = node.first_child(); child; child = child.next_sibling()) {
+			std::cout << "  Child: " << child.name() << "\n";
+
+			// Print attributes of child node
+			for (pugi::xml_attribute attr = child.first_attribute(); attr; attr = attr.next_attribute()) {
+				std::cout << "    [Attribute: " << attr.name() << " = " << attr.value() << "]" << "\n";
+			}
+
+			// Print text of child node if any
+			if (!child.text().empty()) {
+				std::cout << "    [Text: " << child.text().get() << "]" << "\n";
+			}
+
+			std::cout << "\n";
+		}
+
+		std::cout << "\n";
+	}
+}

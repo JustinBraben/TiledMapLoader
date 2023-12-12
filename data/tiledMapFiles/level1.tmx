@@ -2,55 +2,55 @@
 <map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="10" height="10" tilewidth="32" tileheight="32" infinite="0" nextlayerid="10" nextobjectid="25">
  <tileset firstgid="1" source="../../../ECSEngine2D/assets/tileset x1.tsx"/>
  <tileset firstgid="852" name="props and items x1" tilewidth="32" tileheight="32" tilecount="528" columns="24">
-  <image source="../../assets/Props and Items/props and items x1.png" width="768" height="704"/>
+  <image source="../../../TileMapLoader/assets/Props and Items/props and items x1.png" width="768" height="704"/>
  </tileset>
  <tileset firstgid="1380" name="npc x1" tilewidth="32" tileheight="32" tilecount="18" columns="6">
-  <image source="../../assets/NPC/npc x1.png" width="192" height="96"/>
+  <image source="../../../TileMapLoader/assets/NPC/npc x1.png" width="192" height="96"/>
  </tileset>
  <tileset firstgid="1398" name="enemies x1" tilewidth="32" tileheight="32" tilecount="160" columns="10">
-  <image source="../../assets/Enemies/enemies x1.png" width="320" height="512"/>
+  <image source="../../../TileMapLoader/assets/Enemies/enemies x1.png" width="320" height="512"/>
  </tileset>
  <tileset firstgid="1558" name="color palette (Dungeon Lite)" tilewidth="14" tileheight="14" tilecount="72" columns="12" tilerendersize="grid">
-  <image source="../../assets/color palette (Dungeon Lite).png" width="168" height="84"/>
+  <image source="../../../TileMapLoader/assets/color palette (Dungeon Lite).png" width="168" height="84"/>
  </tileset>
  <tileset firstgid="1630" name="Props" tilewidth="32" tileheight="32" tilecount="11" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="3" x="0" y="0" width="32" height="32">
-   <image width="768" height="704" source="../../assets/Props and Items/props and items x1.png"/>
+   <image width="768" height="704" source="../../../TileMapLoader/assets/Props and Items/props and items x1.png"/>
   </tile>
   <tile id="4" x="32" y="0" width="32" height="32">
-   <image width="768" height="704" source="../../assets/Props and Items/props and items x1.png"/>
+   <image width="768" height="704" source="../../../TileMapLoader/assets/Props and Items/props and items x1.png"/>
   </tile>
   <tile id="13" x="224" y="0" width="32" height="32">
-   <image width="768" height="704" source="../../assets/Props and Items/props and items x1.png"/>
+   <image width="768" height="704" source="../../../TileMapLoader/assets/Props and Items/props and items x1.png"/>
   </tile>
   <tile id="14" x="0" y="32" width="32" height="32">
-   <image width="768" height="704" source="../../assets/Props and Items/props and items x1.png"/>
+   <image width="768" height="704" source="../../../TileMapLoader/assets/Props and Items/props and items x1.png"/>
   </tile>
   <tile id="15" x="32" y="32" width="32" height="32">
-   <image width="768" height="704" source="../../assets/Props and Items/props and items x1.png"/>
+   <image width="768" height="704" source="../../../TileMapLoader/assets/Props and Items/props and items x1.png"/>
   </tile>
   <tile id="16" x="96" y="32" width="32" height="32">
-   <image width="768" height="704" source="../../assets/Props and Items/props and items x1.png"/>
+   <image width="768" height="704" source="../../../TileMapLoader/assets/Props and Items/props and items x1.png"/>
   </tile>
   <tile id="17" x="128" y="32" width="32" height="32">
-   <image width="768" height="704" source="../../assets/Props and Items/props and items x1.png"/>
+   <image width="768" height="704" source="../../../TileMapLoader/assets/Props and Items/props and items x1.png"/>
   </tile>
   <tile id="18" x="352" y="192" width="32" height="32">
-   <image width="768" height="704" source="../../assets/Props and Items/props and items x1.png"/>
+   <image width="768" height="704" source="../../../TileMapLoader/assets/Props and Items/props and items x1.png"/>
   </tile>
   <tile id="19" x="384" y="192" width="32" height="32">
    <properties>
     <property name="TileSizeX" type="float" value="32"/>
     <property name="TileSizeY" type="float" value="32"/>
    </properties>
-   <image width="768" height="704" source="../../assets/Props and Items/props and items x1.png"/>
+   <image width="768" height="704" source="../../../TileMapLoader/assets/Props and Items/props and items x1.png"/>
   </tile>
   <tile id="20" x="416" y="192" width="32" height="32">
-   <image width="768" height="704" source="../../assets/Props and Items/props and items x1.png"/>
+   <image width="768" height="704" source="../../../TileMapLoader/assets/Props and Items/props and items x1.png"/>
   </tile>
   <tile id="21" x="448" y="192" width="32" height="32">
-   <image width="768" height="704" source="../../assets/Props and Items/props and items x1.png"/>
+   <image width="768" height="704" source="../../../TileMapLoader/assets/Props and Items/props and items x1.png"/>
   </tile>
  </tileset>
  <layer id="6" name="Background" width="10" height="10">

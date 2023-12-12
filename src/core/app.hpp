@@ -1,13 +1,10 @@
 #ifndef APPLICATION_HPP
 #define APPLICATION_HPP
 
-#include <filesystem>
-#include <iostream>
-#include <fstream>
-#include <string>
+#include "../utils/util.hpp"
 
 #include <SFML/Graphics.hpp>
-#include <pugixml.hpp>
+#include <entt/entity/registry.hpp>
 
 //using fs = std::filesystem::;
 
@@ -16,8 +13,14 @@ class Application
 protected:
 	sf::RenderWindow m_window;
 	bool m_running = true;
-	void init(const std::filesystem::path& filePath);
+	std::map<std::string, sf::Texture> m_textureMap;
+	entt::registry m_reg;
+
+	void init(const std::filesystem::path& tmxFilePath, const std::filesystem::path& assetsFolderPath);
 	void initWindow();
+	void resetEntities();
+	void loadTexturesRecursive(const std::filesystem::path& folderPath);
+	void loadEntitiesFromTmx(const std::filesystem::path& filePath);
 	void update();
 	
 	void sUserInput();
@@ -25,7 +28,7 @@ protected:
 
 public:
 	Application();
-	Application(const std::filesystem::path& filePath);
+	Application(const std::filesystem::path& tmxFilePath, const std::filesystem::path& assetsFolderPath);
 	~Application();
 
 	void quit();

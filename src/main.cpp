@@ -2,6 +2,8 @@
 
 int main()
 {
-    Application app("../../../../data/tiledMapFiles/level1.tmx");
+    const std::filesystem::path assets = "../../../../assets";
+    const std::filesystem::path tmxLevelFile = "../../../../data/tiledMapFiles/level1.tmx";
+    Application app(tmxLevelFile, assets);
     app.run();
 }

@@ -1,50 +1,65 @@
 #include "app.hpp"
 
-void Application::init(const std::filesystem::path& filePath)
+void Application::init(const std::filesystem::path& tmxFilePath, const std::filesystem::path& assetsFolderPath)
 {
     initWindow();
 
-	pugi::xml_document doc;
-	pugi::xml_parse_result result = doc.load_file(filePath.c_str());
-	if (!result)
-	{
-		// error
-	}
+    loadTexturesRecursive(assetsFolderPath);
 
-    for (pugi::xml_node node = doc.first_child(); node; node = node.next_sibling()) {
-        std::cout << "Node: " << node.name() << "\n";
+    writeXmlToConsole(tmxFilePath);
 
-        // Print attributes
-        for (pugi::xml_attribute attr = node.first_attribute(); attr; attr = attr.next_attribute()) {
-            std::cout << "  [Attribute: " << attr.name() << " = " << attr.value() << "]" << "\n";
-        }
-
-        std::cout << "\n";
-
-        for (pugi::xml_node child = node.first_child(); child; child = child.next_sibling()) {
-            std::cout << "  Child: " << child.name() << "\n";
-
-            // Print attributes of child node
-            for (pugi::xml_attribute attr = child.first_attribute(); attr; attr = attr.next_attribute()) {
-                std::cout << "    [Attribute: " << attr.name() << " = " << attr.value() << "]" << "\n";
-            }
-
-            // Print text of child node if any
-            if (!child.text().empty()) {
-                std::cout << "    [Text: " << child.text().get() << "]" << "\n";
-            }
-
-            std::cout << "\n";
-        }
-
-        std::cout << "\n";
-    }
+    loadEntitiesFromTmx(tmxFilePath);
 }
 
 void Application::initWindow()
 {
     m_window.create(sf::VideoMode(1920u, 1080u), "CMake SFML Project");
     m_window.setFramerateLimit(144);
+}
+
+void Application::resetEntities()
+{
+    m_reg.clear();
+}
+
+void Application::loadTexturesRecursive(const std::filesystem::path& folderPath)
+{
+    for (auto& entry : std::filesystem::directory_iterator(folderPath))
+    {
+        auto filePath = entry.path();
+
+        if (std::filesystem::is_directory(filePath))
+        {
+            // Recursive call for subdirectories
+            loadTexturesRecursive(filePath);
+        }
+        else
+        {
+            auto extension = filePath.extension().string();
+
+            // Only do .png files (for now)
+            if (extension == ".png")
+            {
+                auto stem = filePath.stem().string();
+
+                sf::Texture texture;
+                if (!texture.loadFromFile(filePath.string()))
+                {
+                    // Handle error..
+                    std::cerr << "Error loading texture from file: " << filePath << "\n";
+                }
+                else
+                {
+                    m_textureMap[stem] = texture;
+                }
+            }
+        }
+    }
+}
+
+void Application::loadEntitiesFromTmx(const std::filesystem::path& filePath)
+{
+    
 }
 
 void Application::update()
@@ -95,9 +110,9 @@ Application::Application()
 {
 }
 
-Application::Application(const std::filesystem::path& filePath)
+Application::Application(const std::filesystem::path& tmxFilePath, const std::filesystem::path& assetsFolderPath)
 {
-	init(filePath);
+	init(tmxFilePath, assetsFolderPath);
 }
 
 Application::~Application()
