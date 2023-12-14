@@ -58,7 +58,32 @@ void Application::loadTexturesRecursive(const std::filesystem::path& folderPath)
 void Application::loadEntitiesFromTmx(const std::filesystem::path& filePath)
 {
     //writeXmlToConsole(filePath);
-    writeTileSetsToConsole(filePath);
+    //writeTileSetsToConsole(filePath);
+
+    loadTiles(filePath);
+}
+
+void Application::loadTiles(const std::filesystem::path& filePath)
+{
+    json jsonData = getJsonContents(filePath.string());
+
+    if (jsonData.contains("tilesets") && jsonData["tilesets"].is_array())
+    {
+        std::cout << "Found tilesets\n";
+        
+        for (const auto& entry : jsonData["tilesets"])
+        {
+            if (entry.contains("name"))
+            {
+                std::cout << entry["name"].get<std::string>() << "\n";
+            }
+        }
+    }
+
+    if (jsonData.contains("layers") && jsonData["layers"].is_array())
+    {
+        std::cout << "Found layers\n";
+    }
 }
 
 void Application::update()

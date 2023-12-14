@@ -21,8 +21,14 @@ FetchContent_Declare(pugixml
     GIT_TAG v1.10)
 FetchContent_MakeAvailable(pugixml)
 
+FetchContent_Declare(json
+    GIT_REPOSITORY https://github.com/nlohmann/json
+    GIT_TAG v3.11.3
+)  # Specify the desired tag or commit
+FetchContent_MakeAvailable(json)
+
 add_executable(CMakeSFMLProject src/main.cpp "src/core/app.cpp" "src/utils/util.cpp" "src/core/Tileset.cpp")
-target_link_libraries(CMakeSFMLProject PRIVATE sfml-graphics pugixml EnTT::EnTT)
+target_link_libraries(CMakeSFMLProject PRIVATE sfml-graphics pugixml EnTT::EnTT nlohmann_json::nlohmann_json)
 target_compile_features(CMakeSFMLProject PRIVATE cxx_std_17)
 
 if(WIN32)

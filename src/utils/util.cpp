@@ -120,3 +120,21 @@ void writeTileSetsToConsole(const std::filesystem::path& filePath)
 		}
 	}
 }
+
+void writeJsonToConsole(const std::filesystem::path& filePath)
+{
+
+}
+
+json getJsonContents(std::string& filePath)
+{
+	std::ifstream input(filePath);
+	if (!input.is_open())
+	{
+		std::cout << "Failed to open the file.\n";
+	}
+	json jsonData;
+	input >> jsonData;
+	input.close();
+	return jsonData;
+}
