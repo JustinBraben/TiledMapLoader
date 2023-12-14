@@ -27,8 +27,22 @@ FetchContent_Declare(json
 )  # Specify the desired tag or commit
 FetchContent_MakeAvailable(json)
 
-add_executable(CMakeSFMLProject src/main.cpp "src/core/app.cpp" "src/utils/util.cpp" "src/core/Tileset.cpp")
-target_link_libraries(CMakeSFMLProject PRIVATE sfml-graphics pugixml EnTT::EnTT nlohmann_json::nlohmann_json)
+# This fetch content is used to deal with a single file header
+FetchContent_Declare(tileson
+    GIT_REPOSITORY https://github.com/SSBMTonberry/tileson.git
+    GIT_TAG v1.4.0
+)  # Specify the desired tag or commit
+# Fetch the content at configure time
+FetchContent_GetProperties(tileson)
+if(NOT tileson_POPULATED)
+  FetchContent_Populate(tileson)
+endif()
+
+# Add the include directory of the fetched content to your project
+include_directories(${tileson_SOURCE_DIR})
+
+add_executable(CMakeSFMLProject src/main.cpp "src/core/app.cpp" "src/utils/util.cpp" )
+target_link_libraries(CMakeSFMLProject PRIVATE sfml-graphics pugixml EnTT::EnTT nlohmann_json::nlohmann_json ${tileson_SOURCE_DIR})
 target_compile_features(CMakeSFMLProject PRIVATE cxx_std_17)
 
 if(WIN32)

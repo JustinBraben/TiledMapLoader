@@ -7,11 +7,15 @@
 #include <entt/entity/registry.hpp>
 #include <nlohmann/json.hpp>
 
+#include "tileson.hpp"
+
 using xml_node = pugi::xml_node;
 using xml_document = pugi::xml_document;
 using xml_parse_result = pugi::xml_parse_result;
 
 using json = nlohmann::json;
+
+//namespace fs = std::filesystem;
 
 class Application
 {

@@ -84,6 +84,17 @@ void Application::loadTiles(const std::filesystem::path& filePath)
     {
         std::cout << "Found layers\n";
     }
+
+    tson::Tileson t;
+    auto map = t.parse(filePath);
+
+    if (map->getStatus() == tson::ParseStatus::OK)
+    {
+        for (auto& tileset : map->getTilesets())
+        {
+            std::cout << tileset.getType() << "\n";
+        }
+    }
 }
 
 void Application::update()
