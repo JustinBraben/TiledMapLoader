@@ -65,7 +65,8 @@ void Application::loadEntitiesFromTmx(const std::filesystem::path& filePath)
 
 void Application::loadTiles(const std::filesystem::path& filePath)
 {
-    json jsonData = getJsonContents(filePath.string());
+    std::string jsonFilePathString = filePath.string();
+    json jsonData = getJsonContents(jsonFilePathString);
 
     if (jsonData.contains("tilesets") && jsonData["tilesets"].is_array())
     {
@@ -85,16 +86,36 @@ void Application::loadTiles(const std::filesystem::path& filePath)
         std::cout << "Found layers\n";
     }
 
-    tson::Tileson t;
-    auto map = t.parse(filePath);
+    //tson::Tileson t;
+    //auto& map = t.parse(filePath);
 
-    if (map->getStatus() == tson::ParseStatus::OK)
-    {
-        for (auto& tileset : map->getTilesets())
-        {
-            std::cout << tileset.getType() << "\n";
-        }
-    }
+    //if (map->getStatus() == tson::ParseStatus::OK)
+    //{
+    //    for (auto& tileset : map->getTilesets())
+    //    {
+    //        //std::cout << "There are this many tiles in tileset " << tileset.getName() << " : " << tileset.getTileCount() << "\n";
+
+    //        std::cout << "tileset name : " << tileset.getName() << " path : " << tileset.getImagePath().string() << "\n";
+    //    }
+
+    //    for (const auto& entry : map->getTileMap())
+    //    {
+    //        //std::cout << entry.first << "\n";
+    //    }
+
+    //    for (auto& layer : map->getLayers())
+    //    {
+    //        std::cout << "Found layer : " << layer.getName() << "\n";
+
+    //        // Gets the array of tile id's denoting where each tile id should go in a layer
+    //        for (const auto& tile : layer.getData())
+    //        {
+    //            //std::cout << tile << ", ";
+    //        }
+
+    //        std::cout << "\n";
+    //    }
+    //}
 }
 
 void Application::update()
